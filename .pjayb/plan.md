@@ -10,14 +10,14 @@ Browse
 
 Search
 * shift-F3 reverse search
-* isearch replaces last search (enabling F3/C-g)
-* highlight search term in current view
+* highlight last search term in current view
 
 
 Done
 ----
 
 2020/01/05
+* isearch replaces last search (enabling F3/C-g)
 * tilde support in save-as cmd
 * syntax highlighting colors
 * fix compiler warnings in cmd.c
