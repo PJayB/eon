@@ -8,6 +8,7 @@ LC_ALL=C
 CC=gcc
 STRIP=strip
 CFLAGS+=-I./luajit/src
+OBJCOPY=objcopy
 
 WARNINGS=-Wall -Wno-missing-braces -Wno-unused-variable -Wno-unused-but-set-variable
 eon_cflags:=$(CFLAGS) -O2 -D_GNU_SOURCE $(WARNINGS) -g -I./mlbuf/ -I./termbox/src/ -I ./src/libs -I~/.nix-profile/include
@@ -47,7 +48,9 @@ all: eon
 
 eon: ./mlbuf/libmlbuf.a ./termbox/build/libtermbox.a luajit/src/libluajit.a $(eon_objects)
 	$(CC) $(eon_objects) $(eon_static) ./mlbuf/libmlbuf.a luajit/src/libluajit.a ./termbox/build/libtermbox.a $(eon_ldlibs) -o eon
+	$(OBJCOPY) --only-keep-debug eon eon.dbg
 	$(STRIP) eon
+	$(OBJCOPY) --add-gnu-debuglink eon.dbg eon
 
 eon_static: eon_static:=-static
 eon_static: eon_ldlibs:=$(eon_ldlibs) -lpthread

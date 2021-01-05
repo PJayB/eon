@@ -2,5 +2,6 @@
 *.o
 LuaJIT-2.0.5*
 eon
+eon.dbg
 luajit
 
