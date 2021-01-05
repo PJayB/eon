@@ -1,9 +1,6 @@
 To-Do
 =====
 
-## Development
-* update mlbuf submodule and remove patch process
-
 ## Editing
 * splits with different files
 * M-up/M-down moves line up/down
@@ -26,6 +23,7 @@ Done
 ====
 
 ## 2020/01/05
+* update mlbuf submodule and remove patch process
 * Save As: prompt overwrite of existing file
 * bview loads in current dir of most recent file
 * debugger script
