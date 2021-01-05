@@ -7,7 +7,6 @@ To-Do
 ## Editing
 * splits with different files
 * M-up/M-down moves line up/down
-* Save As: prompt overwrite of existing file
 * read only bviews
 * location stack
 * horizontal rulers
@@ -18,11 +17,16 @@ To-Do
 * find symbol under cursor/selection
 * grep for symbol under cursor/selection
 
+## Documentation
+* `--help` command line
+* usage documentation
+
 
 Done
 ====
 
 ## 2020/01/05
+* Save As: prompt overwrite of existing file
 * bview loads in current dir of most recent file
 * debugger script
 * debug symbols
