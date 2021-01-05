@@ -1,3 +1,6 @@
 .gdb_history
 *.o
-LuaJIT-2.0.5
+LuaJIT-2.0.5*
+eon
+luajit
+
