@@ -22,7 +22,10 @@ To-Do
 Done
 ====
 
-## 2020/01/05
+## 2021/01/23
+* fix browse view fully-qualified path handling
+
+## 2021/01/05
 * update mlbuf submodule and remove patch process
 * Save As: prompt overwrite of existing file
 * bview loads in current dir of most recent file
