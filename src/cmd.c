@@ -1977,8 +1977,9 @@ static int _cmd_menu_browse_cb(cmd_context_t* ctx, char * action) {
   // Get path from tree output
   line = strndup(ctx->bview->active_cursor->mark->bline->data, ctx->bview->active_cursor->mark->bline->data_len);
 
-  if ((path = strstr(line, "- ")) != NULL) {
-    path += 2;
+  if ((strncmp(line, "|-- ", 4) == 0) ||
+      (strncmp(line, "`-- ", 4) == 0)) {
+    path = line + 4;
 
   } else if (strcmp(line, "..") == 0) {
     path = ".."; //
@@ -1996,7 +1997,10 @@ static int _cmd_menu_browse_cb(cmd_context_t* ctx, char * action) {
     strcpy(cwd, ".");
   }
 
-  if (strcmp(cwd, ctx->bview->init_cwd) != 0) {
+  // if the path is not accessible as-is, prepend the current working directory to the path
+  if (!util_is_file(path, NULL, NULL) &&
+      !util_is_dir(path) &&
+      strcmp(cwd, ctx->bview->init_cwd) != 0) {
     res = asprintf(&corrected_path, "%s/%s", ctx->bview->init_cwd, path);
   } else {
     corrected_path = strdup(path);
